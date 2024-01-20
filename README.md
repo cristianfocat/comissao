@@ -37,6 +37,24 @@ def porc(preco, qtd):
     elif total > 50000:
       comissao=total * 0.15
       return f'15%'
+      
+def porc_qld(preco, qtd):
+    total = preco * qtd
+
+    if total <= 1000:
+      return f'Resultado Insuficiente Para Avaliação'
+
+    elif total >= 1000 and total <= 5000:
+      comissao = total * 0.05
+      return f'Bom'
+
+    elif total >=5001 and total <=50000:
+      comissao=total * 0.10
+      return f'Ótimo'
+
+    elif total > 50000:
+      comissao=total * 0.15
+      return f'Excelente'
 
 def vendedore():
 
@@ -50,13 +68,15 @@ def vendedore():
     print()
     valor1=total_porc(preco,qtd)
     valor2=porc(preco, qtd)
+    valor3=porc_qld(preco,qtd)
     r = f'Vendedor: {nome} {sobrenome}\n' \
         f'Código Produto: {codigo}\n' \
         f'Preço: {preco}\n' \
         f'Quantidade Vendida: {qtd}\n' \
         f'Total Vendido R$: {preco*qtd:.0f}\n' \
         f'Comissão de:{valor1} \n' \
-        f'Porcentagem de Comissão: {valor2}'
+        f'Porcentagem de Comissão: {valor2}\n' \
+        f'Desempenho: {valor3}'
     
     vendedores.append(r)
     vendedores2.append(vendedores)
